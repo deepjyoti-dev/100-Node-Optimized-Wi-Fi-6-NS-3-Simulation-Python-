@@ -1,61 +1,34 @@
-📄 README: 100-Node Optimized Wi-Fi 6 NS-3 Simulation (Python)
-Overview
+📶 100-Node Optimized Wi-Fi 6 NS-3 Simulation (Python)
 
-This NS-3 Python script simulates a 100-node Wi-Fi 6 (802.11ax) network with:
+This NS-3 Python script simulates a 100-node Wi-Fi 6 (802.11ax) network optimized for high-density wireless traffic testing.
 
-Multi-channel Wi-Fi groups → reduces collisions and interference.
+It features multi-channel Wi-Fi groups, EDCA QoS traffic classes, and FlowMonitor integration to measure throughput, delay, and packet loss.
 
-EDCA QoS traffic classes → prioritizes Voice, Video, Best Effort, and Background traffic.
+✨ Features
 
-Static grid positions → zero mobility jitter.
+100 Wi-Fi Nodes: Arranged in a 10x10 grid with 15m spacing
 
-UDP traffic → each node sends packets to the next node in a loop.
+Multi-Channel Wi-Fi Groups: 4 channels, nodes divided into 4 groups (25 nodes each) to minimize interference
 
-FlowMonitor integration → measures per-flow throughput, packet loss, and delay.
+EDCA QoS Traffic Classes: Voice, Video, Best Effort, Background
 
-This setup is ideal for evaluating network efficiency under high-density wireless traffic in a near-ideal environment.
+Wi-Fi 6 (802.11ax) Support: OFDMA and MU-MIMO for high throughput
 
-Features
+UDP Echo Clients/Servers: Simple packet exchange for performance evaluation
 
-100 Wi-Fi nodes arranged in a grid (10x10) with 15m spacing.
+FlowMonitor Integration: Measures per-flow throughput, packet loss, and average delay
 
-4 Wi-Fi channels → nodes divided into 4 groups (25 nodes each) to minimize interference.
+🧩 Requirements
 
-EDCA QoS support → traffic is distributed among:
+NS-3 with Python bindings (Linux or WSL2 recommended)
 
-Voice
+Python 3.x (tested with Python 3.10+)
 
-Video
+NS-3 version 3.41+ (for Wi-Fi 6 support)
 
-Best Effort
+⚠️ Windows native Python will not work — use WSL2 Ubuntu or a Linux VM.
 
-Background
-
-Wi-Fi 6 (802.11ax) → supports OFDMA and MU-MIMO for high throughput.
-
-UDP Echo Clients/Servers → simple packet exchange for performance testing.
-
-FlowMonitor output → prints:
-
-Transmitted / received packets
-
-Lost packets
-
-Throughput per flow (Mbps)
-
-Average delay per flow (seconds)
-
-Requirements
-
-NS-3 with Python bindings installed (Linux or WSL2 recommended).
-
-Python 3.x (tested with Python 3.10+).
-
-NS-3 version 3.41+ recommended for Wi-Fi 6 support.
-
-⚠️ Windows native Python will not work; use WSL2 Ubuntu or a Linux VM.
-
-How to Run
+⚙️ How to Run
 
 Open your Linux terminal / WSL2.
 
@@ -78,9 +51,9 @@ python3 wifi6_100nodes.py
 
 Monitor console output for per-flow throughput, delay, and packet loss.
 
-Output Interpretation
+📊 Output Interpretation
 
-For each flow, you’ll see:
+Example output per flow:
 
 Flow 1: 10.1.0.1 -> 10.1.0.2
   Tx Packets: 1000
@@ -90,28 +63,32 @@ Flow 1: 10.1.0.1 -> 10.1.0.2
   Average delay: 0.002345 s
 
 
-Tx Packets: total packets sent by the client.
+Tx Packets: Total packets sent by the client
 
-Rx Packets: total packets successfully received by the server.
+Rx Packets: Packets successfully received by the server
 
-Lost Packets: packets lost due to collisions/interference (ideally 0 or very low).
+Lost Packets: Packets lost due to collisions/interference (ideally very low)
 
-Throughput: measured in Mbps over the simulation period.
+Throughput: Measured in Mbps over the simulation period
 
-Average delay: per-packet latency in seconds (helps estimate jitter).
+Average Delay: Per-packet latency in seconds
 
-Optimization Notes
+🧠 Optimization Notes
 
-Multi-channel setup drastically reduces collisions between nodes.
+Multi-Channel Setup: Reduces collisions between nodes
 
-EDCA QoS prioritizes high-priority traffic like Voice & Video.
+EDCA QoS: Prioritizes high-priority traffic (Voice & Video)
 
-Grid layout prevents nodes from being too close, lowering interference.
+Grid Layout: Prevents nodes from being too close, lowering interference
 
-Wi-Fi 6 features (OFDMA/MU-MIMO) maximize parallel transmissions.
+Wi-Fi 6 Features: OFDMA and MU-MIMO maximize parallel transmissions
 
-Adjust interval to fine-tune throughput:
+Interval Adjustment:
 
-Lower interval → higher traffic load, may increase packet loss.
+Lower interval → higher traffic load, may increase packet loss
 
-Higher interval → safer, less congestion.
+Higher interval → less congestion, safer throughput
+
+🏷️ Tags
+
+#ns3 #wifi6 #802.11ax #simulation #python #networking #udp #flowmonitor #edca #highdensity
